@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.touristapp">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Splash">
+        <activity
+            android:name=".About"
+            android:exported="false" />
+        <activity
+            android:name=".Favourite"
+            android:exported="false" />
+        <activity
+            android:name=".GoaMapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PunjabMapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DelhiMapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UttarMapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RajasthanMapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TamilMapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".KeralaMapActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_key" />
+
+        <activity
+            android:name=".Splash"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".GoaActivity"
+            android:parentActivityName=".GoaCategoryActivity"/>
+        <activity android:name=".GoaCategoryActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".PunjabActivity"
+            android:parentActivityName=".PunjabCategoryActivity"/>
+        <activity android:name=".PunjabCategoryActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".DelhiActivity"
+            android:parentActivityName=".DelhiCategoryActivity"/>
+        <activity android:name=".DelhiCategoryActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".UttarActivity"
+            android:parentActivityName=".UttarCategoryActivity"/>
+        <activity android:name=".UttarCategoryActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".RajasthanActivity"
+            android:parentActivityName=".RajasthanCategoryActivity"/>
+        <activity android:name=".RajasthanCategoryActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".TamilActivity"
+            android:parentActivityName=".TamilCategoryActivity"/>
+        <activity android:name=".TamilCategoryActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".KeralaActivity"
+            android:parentActivityName=".KeralaCategoryActivity"/>
+        <activity android:name=".KeralaCategoryActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.TOURISTAPP" />
+    </application>
+
+</manifest>

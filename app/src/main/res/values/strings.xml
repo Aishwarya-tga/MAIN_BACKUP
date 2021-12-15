@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name"> </string>
+
+    <string name="actionbar_title">Tourist App</string>
+
+    <string name="main">Main</string>
+    <string name="imager">Imager</string>
+    <string name="location">Location</string>
+    <string-array name="options">
+        <item><font size="20"> KERALA </font></item>
+        <item><font size="20">TAMIL NADU </font></item>
+        <item><font size="20">RAJASTHAN </font></item>
+        <item><font size="20">UTTAR PRADESH</font></item>
+        <item><font size="20">DELHI</font></item>
+        <item><font size="20">PUNJAB</font></item>
+        <item><font size="20">GOA</font></item>
+
+    </string-array>
+
+
+
+</resources>

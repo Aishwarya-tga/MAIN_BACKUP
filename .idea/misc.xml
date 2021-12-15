@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26205128205128203" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/drawable/buttonshape.xml" value="0.26205128205128203" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/drawable/grad.xml" value="0.1" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/drawable/grad_icon.xml" value="0.1" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26205128205128203" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/drawable/location_icon.xml" value="0.26205128205128203" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/drawable/menu_icon.xml" value="0.1" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/drawable/selector.xml" value="0.1" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/drawable/side_nav_bar.xml" value="0.1" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout-v21/toolbar.xml" value="0.25" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_about.xml" value="0.11980749746707194" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_delhi.xml" value="0.16" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_delhi_category.xml" value="0.14628623188405798" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_delhi_map.xml" value="0.25" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_favourite.xml" value="0.144" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_goa.xml" value="0.1" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_goa_category.xml" value="0.25" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_goa_map.xml" value="0.25" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_kerala.xml" value="0.16" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_kerala_category.xml" value="0.1308876811594203" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_kerala_map.xml" value="0.12590579710144928" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_nav_drawer.xml" value="0.25" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_punjab.xml" value="0.1" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_punjab_map.xml" value="0.25" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_rajasthan.xml" value="0.1" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_tamil.xml" value="0.1" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_uttar.xml" value="0.1" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/activity_uttar_map.xml" value="0.25" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/app_bar_nav_drawer.xml" value="0.25" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/appbar.xml" value="0.264" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/content_nav_drawer.xml" value="0.25" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/fragment_home.xml" value="0.12158054711246201" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/main_nav_drawer.xml" value="0.1802536231884058" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/main_toolbar.xml" value="0.24635416666666668" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/layout/toolbar.xml" value="0.25" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/menu/menu_navigation.xml" value="0.25" />
+        <entry key="..\:/Users/aishw/Documents/Android studio projects/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.26205128205128203" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/drawable/selector.xml" value="0.1" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/activity_delhi.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/activity_delhi_category.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/activity_goa.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/activity_goa_category.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/activity_kerala.xml" value="0.2" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/activity_kerala_category.xml" value="0.1" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/activity_kerala_map.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/activity_punjab.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/activity_punjab_category.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/activity_rajasthan.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/activity_rajasthan_category.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/activity_tamil.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/activity_tamil_category.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/activity_uttar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/activity_uttar_category.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/layout/appbar.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nithi/Documents/Android studio projects/app/src/main/res/menu/menu_navigation.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
