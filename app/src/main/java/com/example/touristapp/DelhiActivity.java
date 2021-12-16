@@ -26,7 +26,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DelhiActivity extends AppCompatActivity {
 
-    public static final String EXTRA_DELHIID = "delhiId";
+    public static final String EXTRA_DELHIID = "delhiId ";
     private Toolbar toolbar;
     private TextView textView;
 
