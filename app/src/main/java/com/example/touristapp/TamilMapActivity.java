@@ -1,18 +1,12 @@
 package com.example.touristapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.graphics.LinearGradient;
-import android.graphics.Shader;
 import android.os.Bundle;
-import android.text.TextPaint;
-import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -22,22 +16,14 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class TamilMapActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class TamilMapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     GoogleMap map;
-    private Toolbar toolbar;
-    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tamil_map);
-
-        toolbar = findViewById(R.id.ToolBar_id);
-        setSupportActionBar(toolbar);
-
-        textView = findViewById(R.id.apptitle);
-        gradColourText();
 
         SupportMapFragment mapFragment;
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -103,18 +89,6 @@ public class TamilMapActivity extends AppCompatActivity implements OnMapReadyCal
         }
         googleMap.setMyLocationEnabled(true);
 
-
-    }
-    private void gradColourText() {
-        TextPaint textPaint =  textView.getPaint();
-        float width = textPaint.measureText("Tourist App");
-
-        Shader shader = new LinearGradient(0,0,width,textView.getTextSize(),
-                new int[]{
-                        Color.parseColor("#fed6e3"),
-                        Color.parseColor("#a8edea"),
-                },null,Shader.TileMode.CLAMP);
-        textView.getPaint().setShader(shader);
 
     }
 }
