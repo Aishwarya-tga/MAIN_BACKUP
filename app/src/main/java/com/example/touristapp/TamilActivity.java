@@ -1,6 +1,7 @@
 package com.example.touristapp;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,9 +11,11 @@ import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.text.TextPaint;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.os.Bundle;
@@ -49,7 +52,7 @@ public class TamilActivity extends AppCompatActivity {
         try {
             SQLiteDatabase db = touristDatabaseHelper.getReadableDatabase();
             Cursor cursor = db.query("TAMIL",
-                    new String[]{"NAME", "DETAIL", "AREA", "ELEVATION", "TYPE", "BTTV", "DEST", "IMAGE_RESOURCE_ID","RATING"},
+                    new String[]{"NAME", "DETAIL", "AREA", "ELEVATION", "TYPE", "BTTV", "DEST", "IMAGE_RESOURCE_ID","RATING","FAVORITE"},
                     "_id = ?",
                     new String[]{Integer.toString(tamilId)},
                     null, null, null);
@@ -65,6 +68,7 @@ public class TamilActivity extends AppCompatActivity {
                 String destText = cursor.getString(6);
                 int photoId = cursor.getInt(7);
                 String ratingText = cursor.getString(8);
+                boolean isFavorite = (cursor.getInt(9) == 1);
 
                 TextView name = (TextView) findViewById(R.id.name);
                 name.setText(nameText);
@@ -94,6 +98,9 @@ public class TamilActivity extends AppCompatActivity {
                 TextView rating = (TextView) findViewById(R.id.rating);
                 rating.setText(ratingText);
 
+                CheckBox favorite = (CheckBox) findViewById(R.id.favorite);
+                favorite.setChecked(isFavorite);
+
                 Button button = (Button) findViewById(R.id.button);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -101,6 +108,14 @@ public class TamilActivity extends AppCompatActivity {
                         openhello();
                     }
                 });
+
+                Button booktxt = (Button) findViewById(R.id.booktext);
+                booktxt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) { booktextfunc ();}
+                });
+
+
 
             }
             cursor.close();
@@ -116,9 +131,9 @@ public class TamilActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.favourite:
+                    case R.id.plan:
                         startActivity(new Intent(getApplicationContext()
-                                ,Favourite.class ));
+                                ,PlanActivity.class ));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.home:
@@ -156,4 +171,46 @@ public class TamilActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    public void booktextfunc() {
+        Intent intent = new Intent(this,PlanActivity.class);
+        startActivity(intent);
+    }
+
+    public void onFavoriteClicked(View view) {
+        int tamilId = (Integer) getIntent().getExtras().get(EXTRA_TAMILID);
+
+        CheckBox favorite = (CheckBox) findViewById(R.id.favorite);
+        ContentValues tamilValues = new ContentValues();
+        tamilValues.put("FAVORITE", favorite.isChecked());
+
+        SQLiteOpenHelper TouristDatabaseHelper = new TouristDatabaseHelper(this);
+        try {
+            SQLiteDatabase db = TouristDatabaseHelper.getWritableDatabase();
+            db.update("TAMIL",
+                    tamilValues,
+                    "_id = ?",
+                    new String[]{Integer.toString(tamilId)});
+            db.close();
+        } catch (SQLiteException e) {
+            Toast toast = Toast.makeText(this, "Database Unavailable", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
+    //for share option on toolbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT,"Hey it's from Tourist App");
+        startActivity(Intent.createChooser(intent,"Share Via"));
+        return super.onOptionsItemSelected(item);
+    }
+
 }

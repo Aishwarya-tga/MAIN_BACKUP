@@ -17,6 +17,64 @@
 
     </string-array>
 
+    <string name="checkbox">Add to Favorites</string>
+    <string name="favtext">Your Favorites Appear Here</string>
+    <string name="favbutton">My Favorites</string>
+    <string name="explore">EXPLORE</string>
+    <string name="action_share">Share</string>
 
+    // for about page
+    <string name="NAME">Name</string>
+    <string name="CONTACT">Contact No</string>
+    <string name="EMAIL">E-Mail ID</string>
+    <string name="LOCATION">Location</string>
 
+    <string-array name="NAME">
+        <item>ASDFGHHJ</item>
+    </string-array>
+
+    <string-array name="CONTACT">
+        <item>1234567890</item>
+    </string-array>
+
+    <string-array name="EMAIL">
+        <item>asdfgcg@gmail.com</item>
+    </string-array>
+
+    <string-array name="LOCATION">
+        <item>Themiscyra</item>
+    </string-array>
+
+    <string name="Version"> 1.0 </string>
+
+    //for plan page
+    <string name="PERSONNAME">ENTER YOUR NAME</string>
+    <string name="PHONENUMBER">ENTER PHONE NUMBER</string>
+    <string name="EMAILID">ENTER EMAIL ID</string>
+    <string name="FROM">FROM</string>
+    <string name="DESTINATION">ENTER DESTINATION</string>
+    <string name="DATE">ENTER DD/MM/YY</string>
+    <string name="MODE">ENTER MODE OF TRANSPORT</string>
+    <string name="MEMBERS">ENTER MEMBERS</string>
+    <string name="BUDGET">ENTER PACKAGE NUMBER</string>
+    <string name="BUTTON">BOOK</string>
+
+    <string name="card1">₹3,000 - ₹5,000</string>
+    <string name="card2">₹4,000 - ₹7,000</string>
+    <string name="card3">₹8,000 - ₹10,000</string>
+    <string name="card4">₹10,000 - ₹15,000</string>
+
+    <string name="cardtext">For Individual</string>
+
+    <string name="cardno1">1</string>
+    <string name="cardno2">2</string>
+    <string name="cardno3">3</string>
+    <string name="cardno4">4</string>
+
+    <string name="submit">SUBMIT</string>
+    <string name="headline">Book Your Destination</string>
+    <string name="headline2">Select  Your  Mode  Of  Transport</string>
+    <string name="headline3">Select Your Package</string>
+
+    <string name="booktext">Book This Trip</string>
 </resources>

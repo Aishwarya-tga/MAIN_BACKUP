@@ -7,17 +7,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.text.TextPaint;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.os.Bundle;
 import android.widget.AdapterView;
 import android.widget.TextView;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -32,13 +33,15 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //toolbar
         toolbar = findViewById(R.id.ToolBar_id);
         setSupportActionBar(toolbar);
 
-
+        //toolbar name
         textView = findViewById(R.id.apptitle);
         gradColourText();
 
+        //main listview
         AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> listView,
                                             View itemView,
@@ -80,6 +83,7 @@ public class MainActivity extends AppCompatActivity{
         ListView listView = (ListView) findViewById (R.id.list_options);
         listView.setOnItemClickListener(itemClickListener);
 
+        //bottom navigation
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
@@ -87,11 +91,10 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.favourite:
+                    case R.id.plan:
                         startActivity(new Intent(getApplicationContext()
-                                ,Favourite.class ));
+                        ,PlanActivity.class));
                         overridePendingTransition(0,0);
-                        return true;
                     case R.id.home:
                         return true;
                     case R.id.about:
@@ -104,9 +107,8 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-
     }
-
+    //toolbar text colour
     private void gradColourText() {
         TextPaint textPaint =  textView.getPaint();
         float width = textPaint.measureText("Tourist App");
@@ -118,6 +120,20 @@ public class MainActivity extends AppCompatActivity{
                 },null,Shader.TileMode.CLAMP);
         textView.getPaint().setShader(shader);
 
+    }
+    //for share option on toolbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT,"Hey it's from Tourist App");
+        startActivity(Intent.createChooser(intent,"Share Via"));
+        return super.onOptionsItemSelected(item);
     }
 
 }

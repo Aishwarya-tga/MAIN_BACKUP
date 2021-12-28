@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,9 +16,11 @@ import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
 import android.text.TextPaint;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,7 +52,7 @@ public class DelhiActivity extends AppCompatActivity {
         try {
             SQLiteDatabase db = touristDatabaseHelper.getReadableDatabase();
             Cursor cursor = db.query("DELHI",
-                    new String[]{"NAME", "DETAIL", "AREA", "HEIGHT", "TYPE", "BTTV", "IMAGE_RESOURCE_ID","RATING"},
+                    new String[]{"NAME", "DETAIL", "AREA", "HEIGHT", "TYPE", "BTTV", "IMAGE_RESOURCE_ID","RATING","FAVORITE"},
                     "_id = ?",
                     new String[]{Integer.toString(delhiId)},
                     null, null, null);
@@ -64,6 +67,7 @@ public class DelhiActivity extends AppCompatActivity {
                 String bttvText = cursor.getString(5);
                 int photoId = cursor.getInt(6);
                 String ratingText = cursor.getString(7);
+                boolean isFavorite = (cursor.getInt(8) == 1);
 
                 TextView name = (TextView) findViewById(R.id.name);
                 name.setText(nameText);
@@ -90,6 +94,10 @@ public class DelhiActivity extends AppCompatActivity {
                 TextView rating = (TextView) findViewById(R.id.rating);
                 rating.setText(ratingText);
 
+                CheckBox favorite = (CheckBox) findViewById(R.id.favorite);
+                favorite.setChecked(isFavorite);
+
+
                 Button button = (Button) findViewById(R.id.button);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -97,6 +105,14 @@ public class DelhiActivity extends AppCompatActivity {
                         openhello();
                     }
                 });
+
+                Button booktxt = (Button) findViewById(R.id.booktext);
+                booktxt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) { booktextfunc ();}
+                });
+
+
 
             }
             cursor.close();
@@ -111,9 +127,9 @@ public class DelhiActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.favourite:
+                    case R.id.plan:
                         startActivity(new Intent(getApplicationContext()
-                                ,Favourite.class ));
+                                ,PlanActivity.class ));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.home:
@@ -131,6 +147,8 @@ public class DelhiActivity extends AppCompatActivity {
             }
         });
     }
+
+
     private void gradColourText() {
         TextPaint textPaint =  textView.getPaint();
         float width = textPaint.measureText("Tourist App");
@@ -148,5 +166,47 @@ public class DelhiActivity extends AppCompatActivity {
         Intent intent = new Intent(this,DelhiMapActivity.class);
         startActivity(intent);
 
+    }
+
+    public void booktextfunc() {
+        Intent intent = new Intent(this,PlanActivity.class);
+        startActivity(intent);
+    }
+
+
+    public void onFavoriteClicked(View view) {
+        int delhiId = (Integer) getIntent().getExtras().get(EXTRA_DELHIID);
+
+        CheckBox favorite = (CheckBox) findViewById(R.id.favorite);
+        ContentValues delhiValues = new ContentValues();
+        delhiValues.put("FAVORITE", favorite.isChecked());
+
+        SQLiteOpenHelper TouristDatabaseHelper = new TouristDatabaseHelper(this);
+        try {
+            SQLiteDatabase db = TouristDatabaseHelper.getWritableDatabase();
+            db.update("DELHI",
+                    delhiValues,
+                    "_id = ?",
+                    new String[]{Integer.toString(delhiId)});
+            db.close();
+        } catch (SQLiteException e) {
+            Toast toast = Toast.makeText(this, "Database Unavailable", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
+    //for share option on toolbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT,"Hey it's from Tourist App");
+        startActivity(Intent.createChooser(intent,"Share Via"));
+        return super.onOptionsItemSelected(item);
     }
 }

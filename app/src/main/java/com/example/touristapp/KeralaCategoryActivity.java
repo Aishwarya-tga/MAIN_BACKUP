@@ -16,10 +16,12 @@ import android.graphics.Shader;
 import android.os.Bundle;
 import android.content.Intent;
 import android.text.TextPaint;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -45,6 +47,15 @@ public class KeralaCategoryActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.apptitle);
         gradColourText();
+
+        Button button = (Button)findViewById(R.id.favbutton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                favbuttonfunc();
+            }
+        });
+
 
         ListView listkerala= (ListView) findViewById(R.id.list_kerala);
         SQLiteOpenHelper touristDatabaseHelper = new TouristDatabaseHelper(this);
@@ -85,9 +96,9 @@ public class KeralaCategoryActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.favourite:
+                    case R.id.plan:
                         startActivity(new Intent(getApplicationContext()
-                                ,Favourite.class ));
+                                ,PlanActivity.class ));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.home:
@@ -105,6 +116,11 @@ public class KeralaCategoryActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void favbuttonfunc() {
+        Intent intent = new Intent(KeralaCategoryActivity.this,KeralaFavorite.class);
+        startActivity(intent);
     }
 
     private void gradColourText() {
@@ -126,6 +142,23 @@ public class KeralaCategoryActivity extends AppCompatActivity {
         cursor.close();
         db.close();
     }
+
+    //for share option on toolbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT,"Hey it's from Tourist App");
+        startActivity(Intent.createChooser(intent,"Share Via"));
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
 
 }

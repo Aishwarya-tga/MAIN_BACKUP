@@ -120,6 +120,29 @@
                 android:drawableRight="@drawable/location_icon"
                 android:drawableEnd="@drawable/location_icon" />
 
+            <CheckBox
+                android:id="@+id/favorite"
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onFavoriteClicked"
+                android:text="@string/checkbox"
+                android:textStyle="italic"
+                android:textColorHighlight="@color/cardview_shadow_end_color"
+                android:textSize="18sp"/>
+
+            <Button
+                android:id="@+id/booktext"
+                android:layout_width="370dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:text="@string/booktext"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:background="@drawable/booktext"/>
+
             <Space
                 android:layout_height="80dp"
                 android:layout_width="410dp"/>

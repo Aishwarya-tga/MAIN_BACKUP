@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,9 +17,11 @@ import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
 import android.text.TextPaint;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,7 +53,7 @@ public class UttarActivity extends AppCompatActivity {
         try {
             SQLiteDatabase db = touristDatabaseHelper.getReadableDatabase();
             Cursor cursor = db.query("UTTAR",
-                    new String[]{"NAME", "DETAIL", "AREA", "ELEVATION", "TYPE", "BTTV", "DEST", "IMAGE_RESOURCE_ID","RATING"},
+                    new String[]{"NAME", "DETAIL", "AREA", "ELEVATION", "TYPE", "BTTV", "DEST", "IMAGE_RESOURCE_ID","RATING","FAVORITE"},
                     "_id = ?",
                     new String[]{Integer.toString(uttarId)},
                     null, null, null);
@@ -66,6 +69,7 @@ public class UttarActivity extends AppCompatActivity {
                 String destText = cursor.getString(6);
                 int photoId = cursor.getInt(7);
                 String ratingText = cursor.getString(8);
+                boolean isFavorite = (cursor.getInt(9) == 1);
 
                 TextView name = (TextView) findViewById(R.id.name);
                 name.setText(nameText);
@@ -95,6 +99,9 @@ public class UttarActivity extends AppCompatActivity {
                 TextView rating = (TextView) findViewById(R.id.rating);
                 rating.setText(ratingText);
 
+                CheckBox favorite = (CheckBox) findViewById(R.id.favorite);
+                favorite.setChecked(isFavorite);
+
                 Button button = (Button) findViewById(R.id.button);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -102,6 +109,13 @@ public class UttarActivity extends AppCompatActivity {
                         openhello();
                     }
                 });
+
+                Button booktxt = (Button) findViewById(R.id.booktext);
+                booktxt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) { booktextfunc ();}
+                });
+
 
             }
             cursor.close();
@@ -117,9 +131,9 @@ public class UttarActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.favourite:
+                    case R.id.plan:
                         startActivity(new Intent(getApplicationContext()
-                                ,Favourite.class ));
+                                ,PlanActivity.class ));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.home:
@@ -155,5 +169,46 @@ public class UttarActivity extends AppCompatActivity {
         Intent intent = new Intent(this,UttarMapActivity.class);
         startActivity(intent);
 
+    }
+
+    public void booktextfunc() {
+        Intent intent = new Intent(this,PlanActivity.class);
+        startActivity(intent);
+    }
+
+    public void onFavoriteClicked(View view) {
+        int uttarId = (Integer) getIntent().getExtras().get(EXTRA_UTTARID);
+
+        CheckBox favorite = (CheckBox) findViewById(R.id.favorite);
+        ContentValues uttarValues = new ContentValues();
+        uttarValues.put("FAVORITE", favorite.isChecked());
+
+        SQLiteOpenHelper TouristDatabaseHelper = new TouristDatabaseHelper(this);
+        try {
+            SQLiteDatabase db = TouristDatabaseHelper.getWritableDatabase();
+            db.update("UTTAR",
+                    uttarValues,
+                    "_id = ?",
+                    new String[]{Integer.toString(uttarId)});
+            db.close();
+        } catch (SQLiteException e) {
+            Toast toast = Toast.makeText(this, "Database Unavailable", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
+    //for share option on toolbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT,"Hey it's from Tourist App");
+        startActivity(Intent.createChooser(intent,"Share Via"));
+        return super.onOptionsItemSelected(item);
     }
 }

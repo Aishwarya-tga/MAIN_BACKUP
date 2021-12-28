@@ -8,7 +8,7 @@ import android.content.Context;
 class TouristDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "tourist";
-    private static final int DB_VERSION = 7;
+    private static final int DB_VERSION = 9;
     private static final String KERALA = "kerala";
     private static final String TAMIL = "tamil";
     private static final String RAJASTHAN = "rajasthan";
@@ -33,7 +33,8 @@ class TouristDatabaseHelper extends SQLiteOpenHelper {
                 + "BTTV TEXT,"
                 + "DEST TEXT,"
                 + "IMAGE_RESOURCE_ID INTEGER,"
-                + "RATING TEXT);");
+                + "RATING TEXT,"
+                + "FAVORITE NUMERIC);");
 
         insertKerala(db,"Alappuzha","Alappuzha, famous for its boat races, beaches, marine products and coir industry, is a world renowned backwater tourist destination of India. Kuttanad, Alappuzha backwaters and Alappuzha beach are the must-see tourist attractions in the district.\n","AREA : 46.2 km²\n","ELEVATION : 11 m\n","TYPE : Beaches, Backwater canals\n","BEST TIME TO VISIT : October to March\n","TOURIST DESTINATION : Alappuzha Beach , Marari Beach , Punnapra Beach\n", R.drawable.alappuzha,"4.5");
         insertKerala(db,"Munnar","Located at the Western Ghats with an average elevation of 1700 meters above sea level, Munnar is a famous hill station in Kerala. The hill station enjoys a favorable and pleasant climate all year round and is famous for its lush green hills and tea plantations.\n","AREA: 187 km²\n","ELEVATION : 1,532 m\n","TYPE : Hill station\n","BEST TIME TO VISIT : August to March\n","TOURIST DESTINATION : Echo Point , Attukad Waterfalls , Top Station\n",R.drawable.munnar,"4.3");
@@ -55,7 +56,8 @@ class TouristDatabaseHelper extends SQLiteOpenHelper {
                 + "BTTV TEXT, "
                 + "DEST TEXT,"
                 + "IMAGE_RESOURCE_ID INTEGER,"
-                + "RATING TEXT);");
+                + "RATING TEXT,"
+                + "FAVORITE NUMERIC);");
 
         insertTamil(db,"Chennai","Famous as the biggest cultural and economic centre down south, Chennai was earlier known as Madras. The city houses several Hindu temples, churches and museums. From its white-sand beaches to mouth-watering seafood, Chennai has everything for travellers.\n","AREA : 426 km²\n","ELEVATION : 6.7 m\n","TYPE : Cultural centre\n","BEST TIME TO VISIT: November to Februray\n","TOURIST DESTINATION : Marina Beach, Birla Planetarium, Valluvar Kottam.\n",R.drawable.chennai,"4.3");
         insertTamil(db,"Thanjavur","Thanjavur is an important center of South Indian religion, art, and architecture. Most of the Great Living Chola Temples, which are UNESCO World Heritage Monuments, are located in and around Thanjavur. The foremost among these, the Brihadeeswara Temple, is located in the centre of the city.\n","AREA : 128 km²\n","ELEVATION : 88 m\n","TYPE : Temples\n","BEST TIME TO VISIT : October to March\n","TOURIST DESTINATION : Brihadeeswara Temple, Gangaikonda Cholapuram, Thanjavur Royal Palace.\n",R.drawable.thanjavur,"4.8");
@@ -79,7 +81,8 @@ class TouristDatabaseHelper extends SQLiteOpenHelper {
                 + "BTTV TEXT, "
                 + "DEST TEXT, "
                 + "IMAGE_RESOURCE_ID INTEGER, "
-                + "RATING TEXT);");
+                + "RATING TEXT,"
+                + "FAVORITE NUMERIC);");
 
         insertRajasthan(db,"Jaipur","Jaipur is famous as Pink City of India and it is also the Capital City of Rajasthan. Jaipur is famous for Rajasthani traditional Jewelry, traditional fabrics and handicrafts, and also for traditional rajasthani cuisine\n","AREA : 484.6 km²\n","ELEVATION : 431 m\n","TYPE : Forts , Palaces\n", "BEST TIME TTO VISIT : November to January\n","TOURIST DESTINATION :  City Palace, Jantar Mantar, Hawa Mahal\n",R.drawable.jaipur,"4.5");
         insertRajasthan(db,"Udaipur","Picturesque and elegant, Udaipur is known by many names, including “the City of Lakes”. Undoubtedly one of India's most romantic cities, it nestles between the glassy waters of its famous lakes and the ancient Aravelli Hills.\n","AREA :  64 km²\n","ELEVATION :  423 m\n","TYPE : lakes\n","BEST TIME TO VISIT : September to March\n","TOURIST DESTINATION : Udaipur City Palace,  Lake Pichola, Fateh Sagar Lake\n", R.drawable.udaipur,"4.6");
@@ -103,7 +106,8 @@ class TouristDatabaseHelper extends SQLiteOpenHelper {
                 + "BTTV TEXT, "
                 + "DEST TEXT, "
                 + "IMAGE_RESOURCE_ID INTEGER, "
-                + "RATING TEXT);");
+                + "RATING TEXT,"
+                + "FAVORITE NUMERIC);");
 
         insertUttar(db,"Agra","Located on the banks of Yamuna, Agra is best known for the iconic Taj Mahal. However, the appeal of this historic city is not limited to this magnificent monument alone. There's a lot to explore and experience, from monuments and mausoleums to parks and bazaars.\n","AREA : 121 km²\n","ELEVATION : 170 m\n","TYPE : Monuments\n"," BEST TIME TO VISIT : October to March\n","TOURIST DESTINATOIN : Taj Mahal,  Agra Fort, Akbar's Mausoleum\n",R.drawable.agra,"4.5");
         insertUttar(db,"Varanasi","Varanasi grew as an important industrial centre famous for its muslin and silk fabrics, perfumes, ivory works, and sculpture. Buddha is believed to have founded Buddhism here around 528 BCE when he gave his first sermon,The Setting in Motion of the Wheel of Dharma,'at nearby Sarnath'.\n","AREA : 82 km²\n","ELEVATION : 81 m\n","TYPE : Temple\n","BEST TIME TO VISIT : November to February\n","TOURIST DESTINATION : Kashi Vishwanath Temple, Durga Mandir, Bharat Mata Mandir\n", R.drawable.varanasi,"4.7");
@@ -124,7 +128,8 @@ class TouristDatabaseHelper extends SQLiteOpenHelper {
                 + "TYPE TEXT, "
                 + "BTTV TEXT,"
                 + "IMAGE_RESOURCE_ID INTEGER, "
-                + "RATING TEXT);");
+                + "RATING TEXT,"
+                + "FAVORITE NUMERIC);");
 
         insertDelhi(db,"India Gate","India Gate, an important monument of the city, is a memorial built in commemoration of more than 80,000 Indian soldiers who were killed during World War I. The monument is an imposing 42 meters high arch and was designed by the famous architect Edwin Lutyens. India gate was earlier named All India War Memorial.\n","AREA : 306,000 sqkm\n","HEIGHT :42m\n","TYPE : War Memorial\n","BEST TIME TO VISIT : 07:00 PM and 09:30 PM\n",R.drawable.indiagate,"4.0");
         insertDelhi(db,"The Red Fort","Delhi's famous Red Fort is known by that name because of the red stone with which it is built and it is one of the most magnificent palaces in the world. India's history is also closely linked with this fort.\n","AREA : 94 acres (38 ha)\n","HEIGHT : 70 feet\n","TYPE : Fort\n","BEST TIME TO VISIT : November to March\n",R.drawable.redfort,"4.4");
@@ -146,7 +151,8 @@ class TouristDatabaseHelper extends SQLiteOpenHelper {
                 + "BTTV TEXT, "
                 + "DEST TEXT, "
                 + "IMAGE_RESOURCE_ID INTEGER, "
-                + "RATING TEXT);");
+                + "RATING TEXT,"
+                + "FAVORITE NUMERIC);");
 
         insertPunjab(db,"Amristar","Amritsar is the largest and most important city in Punjab and is a major commercial, cultural, and transportation centre. It is also the centre of Sikhism and the site of the Sikhs' principal place of worship—the Harmandir Sahib, or Golden Temple.\n","AREA :139 km²\n","ELEVATION : 234 m\n","TYPE : Temple\n","BEST TIME TO VISIT : November to March\n","TOURIST DESTINATION : Golden Temple, Jallianwala Bagh, Wagah Border\n",R.drawable.amristar,"4.9");
         insertPunjab(db,"Chandigarh","Also called the city beautiful, Chandigarh was designed by the Swiss-French modernist architect, Le Corbusier. Apart from the city's architecture and buildings like Capitol Complex, High Court, Secretariat, Legislative Assembly and giant Open Hand Monument, it is also famous for its clean roads and greenery.\n","AREA : 114 km²\n","ELEVATION :  321 m\n","TYPE : Monuments, Statues\n","BEST TIME TO VISIT :  September to November\n","TOURIST DESTINATOIN : The Rock Garden, Rose Garden, Sukhna Lake\n",R.drawable.chandigarh,"4.6");
@@ -168,7 +174,8 @@ class TouristDatabaseHelper extends SQLiteOpenHelper {
                 + "BTTV TEXT, "
                 + "DEST TEXT, "
                 + "IMAGE_RESOURCE_ID INTEGER, "
-                + "RATING TEXT);");
+                + "RATING TEXT,"
+                + "FAVORITE NUMERIC);");
 
         insertGoa(db,"Panaji","The state in western India is known for its beaches, colonial buildings, cuisine and the easy going lifestyle. Panaji remains the most famous tourist destination in Goa, in terms of beaches, churches, carnivals and natural beauty. Being the capital city, it is the focal point of tourism in Goa.\n","AREA :  8.27 km²\n","ELEVATION :  7m\n","TYPE : Fort, Beaches\n","BEST TIME TO VISIT : October to February\n","TOURIST DESTINATION : Reis Magos Fort, Fort Aguada, Old Goa\n",R.drawable.panaji,"4.4");
         insertGoa(db,"Vasco Da Gama","Vasco da Gama was best known for being the first to sail from Europe to India by rounding Africa's Cape of Good Hope. Over the course of two voyages, beginning in 1497 and 1502, da Gama landed and traded in locales along the coast of southern Africa before reaching India on May 20, 1498.\n","AREA : 36 km²\n","ELEVATION :  43 m\n","TYPE : Beaches\n","BEST TIME TO VISIT : March to May\n","TOURIST DESTINATION : Velsao Beach, Pilot Beach, Bogmalo Beach\n",R.drawable.vascodagama,"3.7");
@@ -179,10 +186,6 @@ class TouristDatabaseHelper extends SQLiteOpenHelper {
         insertGoa(db,"Anjuna","Anjuna was made famous by the ‘flower power and peace’ generation of the sixties and early seventies. And later by the ‘trance’ parties.The beach is known for its breeze-catching palms, soft sand, and the unusual rocky formation overlying a cove of whitish sand. and black rock that juts into the sea.\n","AREA : Located 18 kilometers from Panaji\n","ELEVATION :  5 m\n","TYPE : Beaches\n","BEST TIME TO VISIT : November and March\n","TOURIST DESTINATION : Chapora Fort, Anjuna Beach, Vagator Beach Road, Ozran Beach",R.drawable.anjuna,"4.3");
         insertGoa(db,"Pernem","To step into the golden and blue world of Pernem is to step into paradise. Located in North Goa, and surrounded on all sides by gorgeous beaches, lovely hiking trails, and restaurants, bars and spas galore, Pernem is a great base when you are vacationing in Goa.\n","AREA : 4 km²\n","ELEVATION : 6 m\n","TYPE : Baeches, Lake\n","BEST TIME TO VISIT : t November to March\n","TOURIST DESTINATION : Arambol Beach, Ashvem Beach, Arambol Sweet Water Lake\n",R.drawable.pernem,"4.6");
         insertGoa(db,"Dr. Salim Ali Bird Sanctuary","Salim Ali Bird Sanctuary is an estuarine mangrove habitat, which is declared as the bird sanctuary, and located on western tip of the Island of Chorão along the Mandovi River, Goa, in India\n","AREA :  178 ha\n","ELEVATION : (Area) of 9.07 km2\n","TYPE : Bird Sanctuary\n","BEST TIME TO VISIT : October to December\n","TOURIST DESTINATION : sitors can most probably see white egrets and purple herons, you can expect to see colourful kingfishers, eagles, cormorants, kites, woodpeckers, sandpipers, curlews, drongos and mynahs on a fairly regular basis\n",R.drawable.salim,"3.9");
-
-
-
-
 
     }
 

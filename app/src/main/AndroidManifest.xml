@@ -14,11 +14,41 @@
         android:supportsRtl="true"
         android:theme="@style/Splash">
         <activity
-            android:name=".About"
-            android:exported="false" />
+            android:name=".PlanActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
-            android:name=".Favourite"
-            android:exported="false" />
+            android:name=".GoaFavorite"
+            android:exported="false"
+            android:parentActivityName=".GoaCategoryActivity" />
+        <activity
+            android:name=".DelhiFavorite"
+            android:exported="false"
+            android:parentActivityName=".DelhiCategoryActivity" />
+        <activity
+            android:name=".PunjabFavorite"
+            android:exported="false"
+            android:parentActivityName=".PunjabCategoryActivity" />
+        <activity
+            android:name=".UttarFavorite"
+            android:exported="false"
+            android:parentActivityName=".UttarCategoryActivity" />
+        <activity
+            android:name=".RajasthanFavorite"
+            android:exported="false"
+            android:parentActivityName=".RajasthanCategoryActivity" />
+        <activity
+            android:name=".TamilFavorite"
+            android:exported="false"
+            android:parentActivityName=".TamilCategoryActivity" />
+        <activity
+            android:name=".KeralaFavorite"
+            android:exported="false"
+            android:parentActivityName=".KeralaCategoryActivity" />
+        <activity
+            android:name=".About"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".GoaMapActivity"
             android:exported="false" />
@@ -54,34 +84,48 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GoaActivity"
-            android:parentActivityName=".GoaCategoryActivity"/>
-        <activity android:name=".GoaCategoryActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".PunjabActivity"
-            android:parentActivityName=".PunjabCategoryActivity"/>
-        <activity android:name=".PunjabCategoryActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".DelhiActivity"
-            android:parentActivityName=".DelhiCategoryActivity"/>
-        <activity android:name=".DelhiCategoryActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".UttarActivity"
-            android:parentActivityName=".UttarCategoryActivity"/>
-        <activity android:name=".UttarCategoryActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".RajasthanActivity"
-            android:parentActivityName=".RajasthanCategoryActivity"/>
-        <activity android:name=".RajasthanCategoryActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".TamilActivity"
-            android:parentActivityName=".TamilCategoryActivity"/>
-        <activity android:name=".TamilCategoryActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".KeralaActivity"
-            android:parentActivityName=".KeralaCategoryActivity"/>
-        <activity android:name=".KeralaCategoryActivity"
-            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".GoaActivity"
+            android:parentActivityName=".GoaCategoryActivity" />
+        <activity
+            android:name=".GoaCategoryActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PunjabActivity"
+            android:parentActivityName=".PunjabCategoryActivity" />
+        <activity
+            android:name=".PunjabCategoryActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DelhiActivity"
+            android:parentActivityName=".DelhiCategoryActivity" />
+        <activity
+            android:name=".DelhiCategoryActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".UttarActivity"
+            android:parentActivityName=".UttarCategoryActivity" />
+        <activity
+            android:name=".UttarCategoryActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".RajasthanActivity"
+            android:parentActivityName=".RajasthanCategoryActivity" />
+        <activity
+            android:name=".RajasthanCategoryActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".TamilActivity"
+            android:parentActivityName=".TamilCategoryActivity" />
+        <activity
+            android:name=".TamilCategoryActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".KeralaActivity"
+            android:parentActivityName=".KeralaCategoryActivity" />
+        <activity
+            android:name=".KeralaCategoryActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.TOURISTAPP" />

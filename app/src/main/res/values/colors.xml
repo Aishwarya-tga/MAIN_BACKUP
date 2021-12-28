@@ -17,5 +17,13 @@
     <color name="pink">#ffdde1</color>
 
     <color name="bot_icon">#48b1bf</color>
+    <color name="explorecolor">#434343</color>
+
+    <color name = "about">#bdc3c7</color>
+
+    <color name="underline">#bdc3c7</color>
+
+
+
 
 </resources>
