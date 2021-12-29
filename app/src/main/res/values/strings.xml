@@ -24,25 +24,29 @@
     <string name="action_share">Share</string>
 
     // for about page
+
+    <string name="abouttext"> All the top tourist spots are discovered in Tourist App making it the ideal app to explore numerous destinations with detailed description. The travellers can choose their destination with categorisation and submit their bookings.</string>
+
+
     <string name="NAME">Name</string>
     <string name="CONTACT">Contact No</string>
     <string name="EMAIL">E-Mail ID</string>
     <string name="LOCATION">Location</string>
 
     <string-array name="NAME">
-        <item>ASDFGHHJ</item>
+        <item>Aishwarya S</item>
     </string-array>
 
     <string-array name="CONTACT">
-        <item>1234567890</item>
+        <item> </item>
     </string-array>
 
     <string-array name="EMAIL">
-        <item>asdfgcg@gmail.com</item>
+        <item>aishwarya.tga@gmail.com</item>
     </string-array>
 
     <string-array name="LOCATION">
-        <item>Themiscyra</item>
+        <item>Chennai</item>
     </string-array>
 
     <string name="Version"> 1.0 </string>
